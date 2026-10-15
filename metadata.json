@@ -1,0 +1,6 @@
+{
+  "name": "Chris Auto & Tour Services | Car Rentals in Mankessim",
+  "description": "Daily, weekly and monthly car rentals, airport transfers, executive cars, and chauffeur services based in Mankessim, Ghana. 24/7 delivery available.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

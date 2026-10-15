@@ -1,0 +1,95 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 1. Global default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isBootstrappedOwner() {
+      return isSignedIn() &&
+        request.auth.token.email_verified == true &&
+        request.auth.token.email == 'gideonkwesiansah@gmail.com';
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid)) ||
+        isBootstrappedOwner()
+      );
+    }
+
+    function isValidAdmin(data) {
+      return data.keys().hasAll(['email', 'role']) &&
+        data.keys().hasOnly(['email', 'role', 'createdAt']) &&
+        data.email is string && data.email.size() <= 120 &&
+        data.role in ['owner', 'admin'] &&
+        (!('createdAt' in data) || (data.createdAt is string && data.createdAt.size() <= 50));
+    }
+
+    // Admin profiles: only accessible by admins or the specific owner
+    match /admins/{userId} {
+      allow read: if isSignedIn() && (request.auth.uid == userId || isAdmin());
+      allow create, update: if isAdmin() && isValidAdmin(incoming());
+      allow delete: if isAdmin() && !isBootstrappedOwner();
+    }
+
+    function isValidEnquiry(data) {
+      return data.keys().hasAll(['fullName', 'phoneNumber', 'service', 'message', 'consent', 'status', 'createdAt']) &&
+        data.keys().hasOnly([
+          'fullName', 'phoneNumber', 'email', 'service',
+          'preferredPickupDateTime', 'preferredReturnDateTime',
+          'location', 'message', 'consent', 'status', 'notes',
+          'createdAt', 'updatedAt'
+        ]) &&
+        data.fullName is string && data.fullName.size() >= 2 && data.fullName.size() <= 100 &&
+        data.phoneNumber is string && data.phoneNumber.size() >= 5 && data.phoneNumber.size() <= 30 &&
+        data.service is string && data.service.size() >= 2 && data.service.size() <= 100 &&
+        data.message is string && data.message.size() >= 5 && data.message.size() <= 3000 &&
+        data.consent == true &&
+        data.status in ['new', 'contacted', 'closed'] &&
+        data.createdAt is string && data.createdAt.size() <= 50 &&
+        (!('email' in data) || (data.email is string && data.email.size() <= 100)) &&
+        (!('preferredPickupDateTime' in data) || (data.preferredPickupDateTime is string && data.preferredPickupDateTime.size() <= 100)) &&
+        (!('preferredReturnDateTime' in data) || (data.preferredReturnDateTime is string && data.preferredReturnDateTime.size() <= 100)) &&
+        (!('location' in data) || (data.location is string && data.location.size() <= 200)) &&
+        (!('notes' in data) || (data.notes is string && data.notes.size() <= 1000)) &&
+        (!('updatedAt' in data) || (data.updatedAt is string && data.updatedAt.size() <= 50));
+    }
+
+    match /enquiries/{enquiryId} {
+      // Anyone (public visitors without login) can submit an enquiry with initial status 'new'
+      allow create: if isValidId(enquiryId) &&
+        isValidEnquiry(incoming()) &&
+        incoming().status == 'new';
+
+      // Only authenticated admins can read customer inquiries (PII isolation)
+      allow read, delete: if isAdmin();
+
+      // Only admins can update enquiry status or add notes; customer contact details cannot be tampered with
+      allow update: if isAdmin() &&
+        isValidEnquiry(incoming()) &&
+        incoming().fullName == existing().fullName &&
+        incoming().phoneNumber == existing().phoneNumber &&
+        incoming().createdAt == existing().createdAt &&
+        incoming().diff(existing()).affectedKeys().hasOnly(['status', 'notes', 'updatedAt']);
+    }
+  }
+}

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chris Auto &amp; Tour Services | Car Rentals in Mankessim</title>
+    <meta name="description" content="Daily, weekly and monthly car rentals, airport transfers, executive cars, and chauffeur services based in Mankessim, Ghana. 24/7 delivery available." />
+    <meta property="og:title" content="Chris Auto &amp; Tour Services | Car Rentals in Mankessim" />
+    <meta property="og:description" content="Daily, weekly and monthly car rentals, airport transfers, executive cars, and chauffeur services based in Mankessim, Ghana. 24/7 delivery available." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chris Auto &amp; Tour Services | Car Rentals in Mankessim" />
+    <meta name="twitter:description" content="Daily, weekly and monthly car rentals, airport transfers, executive cars, and chauffeur services based in Mankessim, Ghana. 24/7 delivery available." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('chris_auto_theme');
+          if (saved === 'light') {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.classList.add('light');
+            document.documentElement.style.colorScheme = 'light';
+          } else {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+            document.documentElement.style.colorScheme = 'dark';
+          }
+        } catch(e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+    <!-- Structured Data (JSON-LD) for Car Rental Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AutoRental",
+      "name": "Chris Auto & Tour Services",
+      "legalName": "Chris Auto & Tour Services",
+      "alternateName": "CHRIS AUTO — CAR RENTALS",
+      "description": "Daily, weekly and monthly car rentals, airport transfers, executive cars, and chauffeur services based in Mankessim, Ghana. 24/7 delivery available.",
+      "telephone": "+233247088974",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mankessim",
+        "addressCountry": "GH"
+      },
+      "paymentAccepted": "Cash, Bank Transfer, Mobile Money",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Ghana"
+        },
+        {
+          "@type": "Place",
+          "name": "West Africa"
+        }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Car Rental & Tour Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Daily car rentals"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Weekly and monthly rentals"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Airport pickup and drop-off"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Luxury and executive cars"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Chauffeur-driven services"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+  </head>
+  <body class="bg-slate-50 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 antialiased selection:bg-red-600 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
