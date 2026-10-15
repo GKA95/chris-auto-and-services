@@ -6,10 +6,21 @@
   html {
     scroll-behavior: smooth;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+
+  /* Prevent zoom on form inputs on iOS devices */
+  @media screen and (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
   }
 
   /* Light mode defaults */

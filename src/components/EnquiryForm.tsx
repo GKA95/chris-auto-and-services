@@ -279,11 +279,12 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                       type="text"
                       id="fullName"
                       required
+                      autoComplete="name"
                       placeholder="e.g. Kwame Mensah"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       maxLength={100}
-                      className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-4 py-3 text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition-colors"
+                      className="w-full min-h-[46px] bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-4 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -298,11 +299,13 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                       type="tel"
                       id="phoneNumber"
                       required
+                      autoComplete="tel"
+                      inputMode="tel"
                       placeholder="+233 24 708 8974 or 024..."
                       value={phoneNumber}
                       onChange={(e) => setPhoneNumber(e.target.value)}
                       maxLength={30}
-                      className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-4 py-3 text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition-colors"
+                      className="w-full min-h-[46px] bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-4 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition-colors"
                     />
                   </div>
                   <span className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 block">Ghanaian or international number</span>
@@ -320,11 +323,13 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     <input
                       type="email"
                       id="email"
+                      autoComplete="email"
+                      inputMode="email"
                       placeholder="your.email@example.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       maxLength={100}
-                      className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-4 py-3 text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition-colors"
+                      className="w-full min-h-[46px] bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-4 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -338,7 +343,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     value={service}
                     onChange={(e) => setService(e.target.value)}
                     required
-                    className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl px-4 py-3 text-sm text-zinc-900 dark:text-white outline-none transition-colors"
+                    className="w-full min-h-[46px] bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl px-4 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-white outline-none transition-colors"
                   >
                     {serviceOptions.map((opt) => (
                       <option key={opt} value={opt} className="bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white">
@@ -360,7 +365,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     id="pickupDateTime"
                     value={preferredPickupDateTime}
                     onChange={(e) => setPreferredPickupDateTime(e.target.value)}
-                    className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl px-3 py-3 text-xs sm:text-sm text-zinc-900 dark:text-white outline-none"
+                    className="w-full min-h-[46px] bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl px-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-white outline-none"
                   />
                 </div>
 
@@ -373,7 +378,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     id="returnDateTime"
                     value={preferredReturnDateTime}
                     onChange={(e) => setPreferredReturnDateTime(e.target.value)}
-                    className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl px-3 py-3 text-xs sm:text-sm text-zinc-900 dark:text-white outline-none"
+                    className="w-full min-h-[46px] bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl px-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-white outline-none"
                   />
                 </div>
 
@@ -386,11 +391,11 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     <input
                       type="text"
                       id="location"
-                      placeholder="e.g. Mankessim, Accra Airport, Cape Coast..."
+                      placeholder="e.g. Mankessim, Accra Airport..."
                       value={location}
                       onChange={(e) => setLocation(e.target.value)}
                       maxLength={200}
-                      className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-3 py-3 text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none"
+                      className="w-full min-h-[46px] bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl pl-10 pr-3 py-2.5 text-base sm:text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none"
                     />
                   </div>
                 </div>
@@ -410,7 +415,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     maxLength={3000}
-                    className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl p-4 text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none resize-y"
+                    className="w-full bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-zinc-700/80 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-xl p-3.5 sm:p-4 text-base sm:text-sm text-zinc-900 dark:text-white placeholder-zinc-400 dark:placeholder-zinc-500 outline-none resize-y"
                   />
                 </div>
                 <div className="flex justify-between items-center text-[11px] text-zinc-500 dark:text-zinc-400 mt-1">
@@ -419,7 +424,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                 </div>
               </div>
 
-              {/* Consent Checkbox */}
+              {/* Consent Checkbox with generous touch area */}
               <div className="p-4 bg-white dark:bg-zinc-950/70 border border-zinc-200 dark:border-zinc-800 rounded-xl">
                 <label className="flex items-start gap-3 cursor-pointer select-none">
                   <input
@@ -427,7 +432,7 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                     checked={consent}
                     onChange={(e) => setConsent(e.target.checked)}
                     required
-                    className="mt-1 h-4 w-4 rounded border-zinc-300 dark:border-zinc-700 text-red-600 focus:ring-red-500 bg-white dark:bg-zinc-900 cursor-pointer"
+                    className="mt-1 h-5 w-5 rounded border-zinc-300 dark:border-zinc-700 text-red-600 focus:ring-red-500 bg-white dark:bg-zinc-900 cursor-pointer flex-shrink-0"
                   />
                   <span className="text-xs text-zinc-700 dark:text-zinc-300 leading-normal">
                     I consent to allow <strong className="text-zinc-950 dark:text-white">Chris Auto &amp; Tour Services</strong> to use the contact details provided above solely to respond to this enquiry and confirm booking details. This is separate from marketing.
@@ -436,11 +441,11 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
               </div>
 
               {/* Submit Button */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 text-base font-bold text-white bg-red-600 hover:bg-red-700 disabled:bg-zinc-800 disabled:text-zinc-400 rounded-xl shadow-lg shadow-red-950/50 transition-all duration-150 active:scale-95 cursor-pointer disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 text-base font-bold text-white bg-red-600 hover:bg-red-700 disabled:bg-zinc-800 disabled:text-zinc-400 rounded-xl shadow-lg shadow-red-950/50 active:scale-95 transition-all duration-150 cursor-pointer disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -455,19 +460,17 @@ export const EnquiryForm: React.FC<EnquiryFormProps> = ({
                   )}
                 </button>
 
-                <div className="text-xs text-zinc-400 text-center sm:text-right">
+                <div className="text-xs text-zinc-600 dark:text-zinc-400 text-center sm:text-right">
                   Or call directly:{' '}
                   <a
                     href="tel:+233247088974"
-                    className="font-bold text-white hover:text-red-400 transition-colors"
+                    className="font-bold text-zinc-900 dark:text-white hover:text-red-500 transition-colors inline-block py-1"
                   >
                     +233 24 708 8974
                   </a>
                 </div>
-              </div>
-
               {/* Optional WhatsApp shortcut */}
-              <div className="pt-4 border-t border-zinc-800 text-center">
+              <div className="pt-4 border-t border-zinc-200 dark:border-zinc-800 text-center">
                 <a
                   href={whatsappUrl}
                   target="_blank"

@@ -31,56 +31,56 @@ export const Hero: React.FC<HeroProps> = ({ onRequestCar }) => {
             </div>
 
             {/* Main Flyer Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-[1.1] transition-colors">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-950 dark:text-white leading-[1.15] transition-colors">
               Need a Car for Rent?
             </h1>
 
             {/* Flyer Supporting Slogan & Exact Text */}
-            <p className="text-xl sm:text-2xl font-semibold text-red-600 dark:text-red-500 tracking-tight">
+            <p className="text-lg sm:text-2xl font-semibold text-red-600 dark:text-red-500 tracking-tight">
               We&apos;ve got you covered. Book us today!
             </p>
 
-            <p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-300 max-w-2xl leading-relaxed transition-colors">
+            <p className="text-sm sm:text-lg text-zinc-600 dark:text-zinc-300 max-w-2xl leading-relaxed transition-colors">
               Daily, weekly and monthly car rentals, airport transfers and chauffeur services. Based in Mankessim, Ghana.
             </p>
 
             {/* Key Value Points from source */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
-              <div className="flex items-center gap-2 bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800/80 px-3 py-2 rounded-lg shadow-sm">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-2 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+              <div className="flex items-center gap-2 bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800/80 px-3 py-2.5 rounded-lg shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-red-500 flex-shrink-0" />
-                <span>Reliable &amp; Safe</span>
+                <span className="font-medium">Reliable &amp; Safe</span>
               </div>
-              <div className="flex items-center gap-2 bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800/80 px-3 py-2 rounded-lg shadow-sm">
+              <div className="flex items-center gap-2 bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800/80 px-3 py-2.5 rounded-lg shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-red-500 flex-shrink-0" />
-                <span>Executive &amp; Chauffeur</span>
+                <span className="font-medium">Chauffeur Option</span>
               </div>
-              <div className="flex items-center gap-2 bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800/80 px-3 py-2 rounded-lg col-span-2 sm:col-span-1 shadow-sm">
+              <div className="flex items-center gap-2 bg-white dark:bg-zinc-900/70 border border-zinc-200 dark:border-zinc-800/80 px-3 py-2.5 rounded-lg col-span-2 sm:col-span-1 shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-red-500 flex-shrink-0" />
-                <span>Airport Transfers</span>
+                <span className="font-medium">Airport Transfers</span>
               </div>
             </div>
 
             {/* Primary & Secondary Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-3">
               <button
                 onClick={onRequestCar}
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold text-white bg-red-600 hover:bg-red-700 rounded-xl shadow-lg shadow-red-950/20 dark:shadow-red-950/60 transition-all duration-200 active:scale-95 group cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 text-base font-bold text-white bg-red-600 hover:bg-red-700 rounded-xl shadow-lg shadow-red-950/20 dark:shadow-red-950/60 active:scale-95 transition-all duration-200 group cursor-pointer"
               >
                 <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                Request a Car
+                <span>Request a Car</span>
               </button>
 
               <a
                 href="tel:+233247088974"
-                className="inline-flex items-center justify-center gap-2.5 px-8 py-4 text-base font-bold text-zinc-900 dark:text-white bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 rounded-xl shadow-sm transition-all duration-200 active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 text-base font-bold text-zinc-900 dark:text-white bg-white dark:bg-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500 rounded-xl shadow-sm active:scale-95 transition-all duration-200"
               >
                 <Phone className="w-5 h-5 text-red-500" />
-                Call Now (+233 24 708 8974)
+                <span>Call +233 24 708 8974</span>
               </a>
             </div>
 
             {/* Accepted Payment Methods notice from source */}
-            <div className="pt-2 flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400">
+            <div className="pt-2 flex flex-wrap items-center gap-2 text-xs text-zinc-600 dark:text-zinc-400">
               <span className="font-semibold text-zinc-800 dark:text-zinc-300">Accepted Payments:</span>
               <span className="px-2 py-0.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 shadow-sm">Cash</span>
               <span className="px-2 py-0.5 rounded bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 shadow-sm">Bank Transfer</span>
